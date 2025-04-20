@@ -1,0 +1,106 @@
+@import "tailwindcss"; 
+
+:root {
+  --bg: #f9fafb;
+  --primary: #2563eb;
+  --income: #10b981;
+  --expense: #ef4444;
+  --text: #111827;
+  --muted: #6b7280;
+}
+
+body {
+  margin: 0;
+  font-family: "Chewy", system-ui;
+  font-weight: 400; 
+  font-style: normal;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+.app-container {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.header {
+  font-size: 1.75rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: var(--primary);
+}
+
+h3 {
+  font-size: 1.2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+#balance {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0.5rem 0;
+  color: var(--text);
+}
+
+.form-control {
+  margin-bottom: 1rem;
+}
+
+.form-control label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+}
+
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+}
+
+button {
+  background-color: var(--income);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+}
+
+button:hover {
+  background-color: #059669;
+}
+
+.list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.list li {
+  background-color: #f3f4f6;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
+}
+
+.income {
+  border-right: 5px solid var(--income);
+}
+
+.expense {
+  border-right: 5px solid var(--expense);
+}
