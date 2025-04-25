@@ -8,6 +8,7 @@ import { AddTransaction } from "./components/AddTransaction";
 export interface Transaction {
   description: string;
   amount: number;
+  category: string;
 }
 
 function App() {
@@ -26,11 +27,18 @@ function App() {
     localStorage.setItem("transactions", JSON.stringify(transactions));
   }, [transactions]);
 
+  const deleteTransaction = (index: number) => {
+    setTransactions((prev) => prev.filter((_, i) => i !== index));
+  };
+
   return (
     <div className="app-container">
       <Header />
-      <Balance />
-      <TransactionList transactions={transactions} />
+      <Balance transactions={transactions} />
+      <TransactionList
+        transactions={transactions}
+        onDelete={deleteTransaction}
+      />
       <AddTransaction onAdd={addTransaction} />
     </div>
   );

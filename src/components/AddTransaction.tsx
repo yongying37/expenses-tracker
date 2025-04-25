@@ -8,22 +8,31 @@ interface AddTransactionProps {
 export const AddTransaction = ({ onAdd }: AddTransactionProps) => {
   const [description, setDescription] = useState("");
   const [amount, setAmount] = useState("");
+  const [category, setCategory] = useState("Select category");
+  const [open, setOpen] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!description || !amount) {
+    if (!description || !amount || category === "Select category") {
       return;
     }
 
     const newTransaction: Transaction = {
       description,
       amount: parseFloat(amount),
+      category,
     };
 
     onAdd(newTransaction);
     setDescription("");
     setAmount("");
+    setCategory("Select category");
+  };
+
+  const handleCategory = (value: string) => {
+    setCategory(value);
+    setOpen(false);
   };
 
   return (
@@ -49,6 +58,58 @@ export const AddTransaction = ({ onAdd }: AddTransactionProps) => {
             onChange={(e) => setAmount(e.target.value)}
             placeholder="Enter amount"
           />
+        </div>
+        <div className="form-control">
+          <label>Category</label>
+          <button
+            onClick={() => setOpen(!open)}
+            className="dropdown-toggle"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            aria-haspopup="true"
+          >
+            <span>{category}</span>
+            {category === "Select category" && (
+              <span className="material-symbols-outlined">arrow_drop_down</span>
+            )}
+          </button>
+          {open && (
+            <ul className="dropdown-menu">
+              <li>
+                <a
+                  className="dropdown-item"
+                  onClick={() => handleCategory("Food")}
+                >
+                  Food
+                </a>
+              </li>
+              <li>
+                <a
+                  className="dropdown-item"
+                  onClick={() => handleCategory("Entertainment")}
+                >
+                  Entertainment
+                </a>
+              </li>
+              <li>
+                <a
+                  className="dropdown-item"
+                  onClick={() => handleCategory("Utilities")}
+                >
+                  Utilities
+                </a>
+              </li>
+              <li>
+                <a
+                  className="dropdown-item"
+                  onClick={() => handleCategory("Allowance")}
+                >
+                  Allowance
+                </a>
+              </li>
+            </ul>
+          )}
         </div>
         <button type="submit">Add transaction</button>
       </form>

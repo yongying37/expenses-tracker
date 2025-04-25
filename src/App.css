@@ -7,11 +7,12 @@
   --expense: #ef4444;
   --text: #111827;
   --muted: #6b7280;
+  --redcolor: #de3163; 
 }
 
 body {
   margin: 0;
-  font-family: "Chewy", system-ui;
+  font-family: "Arial";
   font-weight: 400; 
   font-style: normal;
   background-color: var(--bg);
@@ -19,7 +20,7 @@ body {
 }
 
 .app-container {
-  max-width: 400px;
+  max-width: 1000px;
   margin: 2rem auto;
   padding: 2rem;
   background-color: white;
@@ -103,4 +104,70 @@ button:hover {
 
 .expense {
   border-right: 5px solid var(--expense);
+}
+
+.btn{
+  padding: 0.5rem;
+  background-color: var(--redcolor);
+}
+
+.btn:hover {
+  background-color: #cb3a13;
+}
+
+/* Dropdown Styles */   
+.dropdown-toggle {
+  display: flex; 
+  align-items: center;
+  background-color: var(--muted);
+}
+
+.dropdown-toggle:hover {
+  background-color: darkgrey;
+}
+
+.dropdown-menu {
+  position: absolute; 
+  background-color: white;
+  border: 1px solid black;
+}
+
+.dropdown-item {
+  display: block; 
+  padding: 0.5rem 0.5rem; 
+  cursor: pointer; 
+  color: var(--text); 
+  box-sizing: border-box;
+}
+
+.dropdown-item:hover {
+  background-color:#2563eb;
+}
+
+.transaction-table {
+  width: 100%;
+  margin-top: 10px; 
+}
+
+.transaction-table th,
+.transaction-table td {
+  padding: 10px;
+  text-align: left;
+}
+
+.transaction-table tr.expense {
+  background-color: #ffe6e6;
+}
+
+.transaction-table tr.income {
+  background-color: #e6ffe6;
+}
+
+.transaction-table .btn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
 }
