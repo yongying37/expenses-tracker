@@ -7,7 +7,7 @@
   --expense: #ef4444;
   --text: #111827;
   --muted: #6b7280;
-  --redcolor: #de3163; 
+  --redcolor: #de3163;
 }
 
 body {
@@ -170,4 +170,15 @@ button:hover {
   padding: 5px 10px;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.radio-group {
+  display: flex; 
+  align-items: center;
+  gap: 10px;
+}
+
+.type {
+  margin: 10px 20px 10px 0;
+  padding: 10px;
 }

@@ -8,7 +8,11 @@ interface BalanceProps {
 export const Balance = ({ transactions }: BalanceProps) => {
   let bal = 0;
   for (let transaction of transactions) {
-    bal += transaction.amount;
+    if (transaction.transtype === "income") {
+      bal += transaction.amount;
+    } else {
+      bal -= transaction.amount;
+    }
   }
   return (
     <>

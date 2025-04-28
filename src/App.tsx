@@ -9,6 +9,7 @@ export interface Transaction {
   description: string;
   amount: number;
   category: string;
+  transtype: string;
 }
 
 function App() {

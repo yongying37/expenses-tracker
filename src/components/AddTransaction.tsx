@@ -10,6 +10,7 @@ export const AddTransaction = ({ onAdd }: AddTransactionProps) => {
   const [amount, setAmount] = useState("");
   const [category, setCategory] = useState("Select category");
   const [open, setOpen] = useState(false);
+  const [transtype, setTranstype] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -22,12 +23,14 @@ export const AddTransaction = ({ onAdd }: AddTransactionProps) => {
       description,
       amount: parseFloat(amount),
       category,
+      transtype,
     };
 
     onAdd(newTransaction);
     setDescription("");
     setAmount("");
     setCategory("Select category");
+    setTranstype("");
   };
 
   const handleCategory = (value: string) => {
@@ -111,6 +114,28 @@ export const AddTransaction = ({ onAdd }: AddTransactionProps) => {
             </ul>
           )}
         </div>
+
+        <div className="radio-group">
+          <input
+            type="radio"
+            id="expense"
+            className="type"
+            value={"expense"}
+            checked={transtype === "expense"}
+            onChange={(e) => setTranstype(e.target.value)}
+          />
+          <label htmlFor="expense">Expense</label>
+          <input
+            type="radio"
+            id="income"
+            className="type"
+            value={"income"}
+            checked={transtype === "income"}
+            onChange={(e) => setTranstype(e.target.value)}
+          />
+          <label htmlFor="income">Income</label>
+        </div>
+
         <button type="submit">Add transaction</button>
       </form>
     </>

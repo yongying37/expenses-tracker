@@ -24,12 +24,14 @@ export const TransactionList = ({
           {transactions.map((transaction, index) => (
             <tr
               key={index}
-              className={transaction.amount < 0 ? "expense" : "income"}
+              className={
+                transaction.transtype === "expense" ? "expense" : "income"
+              }
             >
               <td>{transaction.description}</td>
               <td>{transaction.category}</td>
               <td>
-                {transaction.amount < 0 ? "💸" : "💰"} $
+                {transaction.transtype === "expense" ? "💸" : "💰"} $
                 {transaction.amount.toFixed(2)}
               </td>
               <td>
